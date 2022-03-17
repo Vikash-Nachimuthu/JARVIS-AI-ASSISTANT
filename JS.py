@@ -70,7 +70,7 @@ def main():
             strtime=datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"{MASTER} the time is {strtime}")
     elif 'open code' in query.lower():
-            codepath="C:\\Users\\kavi priyan\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            codepath="C:\projects"
             os.startfile(codepath)
     elif 'email to vikash'  in query.lower():
             try:
@@ -80,7 +80,11 @@ def main():
                 email(to,content)
                 speak("Email has been sent successfully")
             except Exception as e:
-                print(e)        
+                print(e) 
+    elif "log off" in query.lower():
+        speak("Ok Bye, System will shutdown in 10 seconds")
+        subprocess.call(["shutdown","/l"])
+        
 
 main()
     
